@@ -30,7 +30,7 @@ def rot13():
     text = request.form['text']
     if token != slack_command_token or command != slash_command:
         abort(403)
-    rotated_text_list = [letter_map[x] for x in text]
+    rotated_text_list = [letter_map.get(x, x) for x in text]
     return Response(''.join(rotated_text_list), content_type='text/plain')
 
 
