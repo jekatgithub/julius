@@ -19,10 +19,6 @@ letter_map = rotate()
 slack_command_token = os.environ['SLACK_COMMAND_TOKEN']
 slash_command = '/rot13'
 
-@app.route('/')
-def hello():
-    return 'Hello World!'
-
 @app.route('/rot13', methods=['POST'])
 def rot13():
     token = request.form['token']
